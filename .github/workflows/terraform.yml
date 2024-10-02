@@ -5,7 +5,7 @@ on:
     branches:
       - main
   pull_request:
-
+  
 jobs:
   terraform:
     name: "Terraform"
@@ -31,20 +31,24 @@ jobs:
       - name: Terraform Format
         id: fmt
         run: terraform fmt 
+        working-directory: infra  # Define o diretório de trabalho
 
       - name: Terraform Init
         id: init
         run: terraform init
+        working-directory: infra  # Define o diretório de trabalho
       
       - name: Terraform Validate
         id: validate
         run: terraform validate -no-color
+        working-directory: infra  # Define o diretório de trabalho
         continue-on-error: true
 
       - name: Terraform Plan
         id: plan
         if: github.event_name == 'pull_request'
         run: terraform plan
+        working-directory: infra  # Define o diretório de trabalho
 
       - name: Update Pull Request
         uses: actions/github-script@v6
@@ -82,4 +86,5 @@ jobs:
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        run: terraform apply -auto-approve 
+        run: terraform apply -auto-approve
+        working-directory: infra  # Define o diretório de trabalho
