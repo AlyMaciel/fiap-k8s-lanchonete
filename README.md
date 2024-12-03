@@ -7,6 +7,7 @@ Projeto de Infraestrutura como código com Kubernetes, utilizando Terraform para
 
 
 
+
 ## 🔨 Funcionalidades do projeto
 
 
