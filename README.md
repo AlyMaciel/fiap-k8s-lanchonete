@@ -22,6 +22,7 @@ A partir desse projeto você pode:
 
 
 
+
 Neste App são exploradas as seguintes técnicas e tecnologias:
 
 
